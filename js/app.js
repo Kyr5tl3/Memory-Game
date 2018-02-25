@@ -10,11 +10,21 @@ let deckArray = ["fa-diamond", "fa-diamond","fa-paper-plane-o","fa-paper-plane-o
  *   - add each card's HTML to the page
  */
 
+ let fragment = document.createDocumentFragment();
 
-function newDeck(){
-  deckArray = shuffle(deckArray);
-  deckArray.forEach(generateCard);
-}
+ function newDeck(){
+   deckArray = shuffle(deckArray);
+   deckArray.forEach(function(cardtype){
+     let iElement = document.createElement('i');
+     iElement.className += "fa " + cardtype;
+     let liElement = document.createElement('li');
+     liElement.className += 'card';
+     liElement.appendChild(iElement);
+     fragment.appendChild(liElement);
+   });
+   let deck = document.getElementById('deck');
+   deck.appendChild(fragment);
+ }
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
