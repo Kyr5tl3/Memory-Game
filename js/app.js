@@ -16,7 +16,7 @@ function newDeck(){
 };
 
 function generateCard(cardtype){
-  let deck = document.getElementById('deck')
+  let deck = document.getElementByClassName('deck')
   deck.insertAdjacentHTML('beforeend','<li class="card"><i class="fa `cardtype`"></i></li>');
 }
 
