@@ -1,7 +1,7 @@
-/*
- * Create a list that holds all of your cards
- */
-let deckArray = ["fa-diamond", "fa-diamond","fa-paper-plane-o","fa-paper-plane-o","fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
+
+//  Create a list that holds all of your cards
+
+let deckArray = ["fa-diamond", ,"fa-paper-plane-o","fa-paper-plane-o","fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
 
 /*
  * Display the cards on the page
@@ -9,6 +9,11 @@ let deckArray = ["fa-diamond", "fa-diamond","fa-paper-plane-o","fa-paper-plane-o
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+
+function newDeck(){
+  deckArray = shuffle(deckArray);
+  deckArray.forEach(generateCard)
+};
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
