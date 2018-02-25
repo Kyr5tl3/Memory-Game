@@ -10,15 +10,12 @@ let deckArray = ["fa-diamond", "fa-diamond","fa-paper-plane-o","fa-paper-plane-o
  *   - add each card's HTML to the page
  */
 
+
 function newDeck(){
   deckArray = shuffle(deckArray);
-  deckArray.forEach(generateCard)
-};
-
-function generateCard(cardtype){
-  let deck = document.getElementByClassName('deck')
-  deck.insertAdjacentHTML('beforeend','<li class="card"><i class="fa `cardtype`"></i></li>');
+  deckArray.forEach(generateCard);
 }
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
