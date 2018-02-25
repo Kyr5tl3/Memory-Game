@@ -1,7 +1,7 @@
 
 //  Create a list that holds all of your cards
 
-let deckArray = ["fa-diamond", ,"fa-paper-plane-o","fa-paper-plane-o","fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
+let deckArray = ["fa-diamond", "fa-diamond","fa-paper-plane-o","fa-paper-plane-o","fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
 
 /*
  * Display the cards on the page
@@ -14,6 +14,11 @@ function newDeck(){
   deckArray = shuffle(deckArray);
   deckArray.forEach(generateCard)
 };
+
+function generateCard(cardtype){
+  let deck = document.getElementById('deck')
+  deck.insertAdjacentHTML('beforeend','<li class="card"><i class="fa `cardtype`"></i></li>');
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
