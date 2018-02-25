@@ -19,6 +19,7 @@ let deckArray = ["fa-diamond", "fa-diamond","fa-paper-plane-o","fa-paper-plane-o
      iElement.className += "fa " + cardtype;
      let liElement = document.createElement('li');
      liElement.className += 'card';
+     liElement.addEventListener('click',toggleCard)
      liElement.appendChild(iElement);
      fragment.appendChild(liElement);
    });
