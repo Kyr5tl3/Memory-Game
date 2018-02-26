@@ -108,6 +108,10 @@ function resetCards(){
   open =[];
 }
 
+//update moves 
+function updateMoves(){
+  moves += 1;
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
