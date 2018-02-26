@@ -97,6 +97,17 @@ function negativeMatch(){
   setTimeout(resetCards, 1000);
 }
 
+//reset cards
+function resetCards(){
+  open[0].classList.remove("card","open","show","shake","animated");
+  open[0].classList.add("card");
+  open[0].addEventListener('click',toggleCard);
+  open[1].classList.remove("card","open","show","shake","animated");
+  open[1].classList.add("card")
+  open[1].addEventListener('click',toggleCard);
+  open =[];
+}
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
