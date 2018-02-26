@@ -43,8 +43,12 @@ function shuffle(array) {
     return array;
 }
 
-// toggling card function
+//list of variables
+let open = [];
+let moves = 0;
+let matches = 0;
 
+// toggling card function
 function toggleCard(cards){
   //apply card open animation
   this.classList.toggle("open");
