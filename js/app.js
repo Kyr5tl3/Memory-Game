@@ -43,6 +43,30 @@ function shuffle(array) {
     return array;
 }
 
+// toggling card function
+
+function toggleCard(cards){
+  //apply card open animation
+  this.classList.toggle("open");
+  this.removeEventListener('click',toggleCard);
+  //if no card has been opened
+  if(open.length === 0){
+    this.classList.toggle("show");
+
+    // let cardImage = this.children
+    open.push(this);
+  }
+    else if (open.length === 1) {
+      this.classList.toggle("show");
+      open.push(this);
+      updateMoves();
+    }
+    if(open.length === 2){
+  testMatch();
+  }
+}
+
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
