@@ -70,6 +70,17 @@ function toggleCard(cards){
   }
 }
 
+//test if cards match
+function testMatch(){
+
+  if(open[0].firstChild.className == open[1].firstChild.className) {
+    setTimeout(positiveMatch,500)
+      }
+      else {
+        setTimeout(negativeMatch,500);
+      }
+}
+
 
 
 /*
