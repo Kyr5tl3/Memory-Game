@@ -81,6 +81,21 @@ function testMatch(){
       }
 }
 
+//test for positive / negative match
+function positiveMatch(){
+  open[0].classList.add("match","pulse","animated");
+  open[1].classList.add("match","pulse","animated");
+  // open[0].removeEventListener('click',toggleCard);
+  // open[1].removeEventListener('click',toggleCard);
+  matches += 1;
+  open = [];
+}
+
+function negativeMatch(){
+  open[0].classList.add("shake","animated");
+  open[1].classList.add("shake","animated");
+  setTimeout(resetCards, 1000);
+}
 
 
 /*
