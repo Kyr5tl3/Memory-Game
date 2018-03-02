@@ -81,10 +81,9 @@ function testMatch(){
 
 //test for positive / negative match
 function positiveMatch(){
-  open[0].classList.add("match","pulse","animated");
-  open[1].classList.add("match","pulse","animated");
-  // open[0].removeEventListener('click',toggleCard);
-  // open[1].removeEventListener('click',toggleCard);
+  open[0].addClass("match pulse animated");
+  open[1].addClass("match pulse animated");
+  open[0].off
   matches += 1;
   open = [];
 }
