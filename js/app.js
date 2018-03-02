@@ -136,6 +136,21 @@ function starScore(){
     }
   }
 
+  //end of game message
+  function congratulations(){
+    $("#deck").empty();
+    $("ul.deck").addClass("lineUp");
+    $("ul.deck").append("<div class='lineUp'></div>");
+    $("div.lineUp").append("<h1>Congratulations!!!</h1>");
+    $("div.lineUp").append("<h2>You have matched all the cards!</h2>");
+    $("ul.stars").clone().appendTo($("div.lineUp")).addClass("lineUp");
+    $("ul.stars.lineUp").css({"list-style-type":"none","padding":"0px"});
+    $("ul.stars.lineUp").children("li").addClass("lineUp");
+    $("div.lineUp").append("<p></p>");
+    $("div.lineUp").children("p").text(moves + " Moves");
+    $("div.lineUp").append("<button class='button1'>Try Again?</button>").click(playGame);
+  }
+
 //begin game
 function playGame(){
   newDeck();
