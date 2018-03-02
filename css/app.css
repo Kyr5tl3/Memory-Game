@@ -101,12 +101,12 @@ h1 {
 
 .score-panel .stars {
     list-style: none;
-    display: inline-block;
+    display: inline;
 }
 
 .score-panel .stars li {
     list-style: none;
-    display: inline-block;
+    display: inline;
 }
 
 .score-panel .restart {
