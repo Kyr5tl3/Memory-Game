@@ -96,12 +96,12 @@ function negativeMatch(){
 
 //reset cards
 function resetCards(){
-  open[0].classList.remove("card","open","show","shake","animated");
-  open[0].classList.add("card");
-  open[0].addEventListener('click',toggleCard);
-  open[1].classList.remove("card","open","show","shake","animated");
-  open[1].classList.add("card")
-  open[1].addEventListener('click',toggleCard);
+  open[0].removeClass("card open show shake animated");
+  open[0].addClass("card");
+  open[0].click(toggleCard);
+  open[1].removeClass("card open show shake animated");
+  open[1].addClass("card")
+  open[1].click(toggleCard);
   open =[];
 }
 
