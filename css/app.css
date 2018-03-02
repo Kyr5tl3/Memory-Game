@@ -121,6 +121,11 @@ h1 {
   padding: 0;
 }
 
+.score-panel .timer {
+  width: 45%;
+  text-align: center;
+}
+
 .lineUp {
   display: inline;
   text-align: center;
