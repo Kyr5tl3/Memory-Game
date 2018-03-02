@@ -128,7 +128,14 @@ function starScore(){
         $(".fa-star").last().removeClass("fa-star").addClass("fa-star-o");
       }
   }
-  
+
+  //end of game
+  function endGame(){
+    if(matches === 8){
+      congratulations();
+    }
+  }
+
 //begin game
 function playGame(){
   newDeck();
