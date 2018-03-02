@@ -115,6 +115,17 @@ function updateMoves(){
 function restartButton(){
   $(".restart").click(playGame);
 }
+
+//begin game
+function playGame(){
+  newDeck();
+  restartButton();
+  moves = 0;
+  matches = 0;
+}
+
+
+playGame();
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
