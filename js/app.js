@@ -63,6 +63,7 @@ function toggleCard(cards){
       $(this).addClass("show");
       open.push($(this));
       updateMoves();
+      starScore();
     }
     if(open.length === 2){
   testMatch();
