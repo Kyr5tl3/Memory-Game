@@ -86,6 +86,7 @@ function positiveMatch(){
   open[1].addClass("match pulse animated");
   open[0].off
   matches += 1;
+  endGame();
   open = [];
 }
 
