@@ -116,6 +116,19 @@ function restartButton(){
   $(".restart").click(playGame);
 }
 
+//stars
+function starScore(){
+  if(moves == "11"){
+    $(".fa-star").last().removeClass("fa-star").addClass("fa-star-o");
+  }
+    else if(moves == "16"){
+      $(".fa-star").last().removeClass("fa-star").addClass("fa-star-o");
+    }
+      else if(moves == "20"){
+        $(".fa-star").last().removeClass("fa-star").addClass("fa-star-o");
+      }
+  }
+  
 //begin game
 function playGame(){
   newDeck();
