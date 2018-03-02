@@ -158,7 +158,7 @@ h1 {
 
 .animated {
   -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
