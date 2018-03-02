@@ -89,8 +89,8 @@ function positiveMatch(){
 }
 
 function negativeMatch(){
-  open[0].classList.add("shake","animated");
-  open[1].classList.add("shake","animated");
+  open[0].addClass("shake animated");
+  open[1].addClass("shake animated");
   setTimeout(resetCards, 1000);
 }
 
