@@ -13,6 +13,7 @@ let deckArray = ["fa-diamond", "fa-diamond","fa-paper-plane-o","fa-paper-plane-o
  let fragment = document.createDocumentFragment();
 
  function newDeck(){
+   $("#deck").empty();
    deckArray = shuffle(deckArray);
    deckArray.forEach(function(cardtype){
      let iElement = document.createElement('i');
@@ -108,7 +109,7 @@ function resetCards(){
   open =[];
 }
 
-//update moves 
+//update moves
 function updateMoves(){
   moves += 1;
 }
