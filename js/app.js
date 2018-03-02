@@ -108,6 +108,7 @@ function resetCards(){
 //update moves
 function updateMoves(){
   moves += 1;
+  $("span.moves").text(moves + " Moves");
 }
 
 /*
