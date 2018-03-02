@@ -14,6 +14,7 @@ let deckArray = ["fa-diamond", "fa-diamond","fa-paper-plane-o","fa-paper-plane-o
 
  function newDeck(){
    $("#deck").empty();
+   $("ul.deck").removeClass("lineUp");
    deckArray = shuffle(deckArray);
    deckArray.forEach(function(cardtype){
      let iElement = document.createElement('i');
