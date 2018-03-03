@@ -166,7 +166,8 @@ function starScore(){
     $("ul.stars.lineUp").children("li").addClass("lineUp");
     $("div.lineUp").append("<p></p>");
     $("div.lineUp").children("p").text(moves + " Moves");
-    $("div.lineUp").append("<button class='button1'>Try Again?</button>").click(playGame);
+    $("div.timer").clone().appendTo($("div.lineUp"))
+    $("div.lineUp").append("<br><button class='button1'>Try Again?</button>").click(playGame);
   }
 
 //begin game
