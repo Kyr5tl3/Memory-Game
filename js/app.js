@@ -179,6 +179,7 @@ function playGame() {
   resetTimer();
   $(".card").click(startTimer);
   $(".moves").empty();
+  $(".fa.fa-star-o").removeClass("fa-star-o").addClass("fa-star");
   newDeck();
   restartButton();
   moves = 0;
