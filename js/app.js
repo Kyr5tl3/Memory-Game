@@ -51,6 +51,18 @@ let moves = 0;
 let matches = 0;
 let clicks = 0;
 
+//timer
+let time = new Date;
+let timer = "";
+
+function startTimer(time){
+  if(clicks === 1){
+  timer = setInterval(function() {
+        $(".timer").text(Math.round((new Date - time) / 1000, 0) + " Seconds")
+  }, 1000);
+}
+}
+
 // toggling card function
 function toggleCard(cards){
   //apply card open animation
@@ -137,6 +149,7 @@ function starScore(){
   //end of game
   function endGame(){
     if(matches === 8){
+      clearInterval(timer);
       congratulations();
     }
   }
