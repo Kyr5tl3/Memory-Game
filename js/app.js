@@ -77,6 +77,7 @@ function toggleCard(cards){
   $(this).addClass("open");
   $(this).off("click",toggleCard);
   clicks += 1;
+  startTimer(time);
   //if no card has been opened
   if(open.length === 0){
     $(this).addClass("show");
@@ -180,11 +181,14 @@ function starScore(){
 
 //begin game
 function playGame(){
+  clearInterval(timer);
+  resetTimer();
+  $(".card").click(startTimer);
+  $(".moves").empty();
   newDeck();
   restartButton();
   moves = 0;
   matches = 0;
-  clicks = 0;
 }
 
 
