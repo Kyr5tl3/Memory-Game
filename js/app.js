@@ -63,6 +63,14 @@ function startTimer(time){
 }
 }
 
+function resetTimer(){
+  clearInterval(timer);
+  time = new Date;
+  timer = "";
+  clicks = 0;
+  $("div.timer").empty();
+}
+
 // toggling card function
 function toggleCard(cards){
   //apply card open animation
