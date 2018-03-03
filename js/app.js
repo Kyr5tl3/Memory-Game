@@ -49,12 +49,14 @@ function shuffle(array) {
 let open = [];
 let moves = 0;
 let matches = 0;
+let clicks = 0;
 
 // toggling card function
 function toggleCard(cards){
   //apply card open animation
   $(this).addClass("open");
   $(this).off("click",toggleCard);
+  clicks += 1;
   //if no card has been opened
   if(open.length === 0){
     $(this).addClass("show");
@@ -160,6 +162,7 @@ function playGame(){
   restartButton();
   moves = 0;
   matches = 0;
+  clicks = 0;
 }
 
 
