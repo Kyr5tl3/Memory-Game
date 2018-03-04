@@ -2,6 +2,13 @@
 
 let deckArray = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
 
+
+//list of variables
+let open = [];
+let moves = 0;
+let matches = 0;
+let clicks = 0;
+
 //card display
 
 let fragment = document.createDocumentFragment();
@@ -40,27 +47,18 @@ function shuffle(array) {
   return array;
 }
 
-//list of variables
-let open = [];
-let moves = 0;
-let matches = 0;
-let clicks = 0;
-
 //timer
-let time = new Date;
 let timer = "";
 
-function startTimer(time) {
-  if (clicks === 1) {
+function startTimer() {
+  let time = new Date();
     timer = setInterval(function() {
       $(".timer").text(Math.round((new Date - time) / 1000, 0) + " Seconds")
     }, 1000);
   }
-}
 
 function resetTimer() {
   clearInterval(timer);
-  time = new Date;
   timer = "";
   clicks = 0;
   $("div.timer").empty();
@@ -72,7 +70,13 @@ function toggleCard(cards) {
   $(this).addClass("open");
   $(this).off("click", toggleCard);
   clicks += 1;
-  startTimer(time);
+  //enable/disable start of timer
+  if(clicks === 0){
+    $(".cards").on("click",startTimer());
+  }
+  else if (clicks === 1) {
+    $(".cards").off("click",startTimer());
+  }
   //if no card has been opened
   if (open.length === 0) {
     $(this).addClass("show");
@@ -177,8 +181,9 @@ function congratulations() {
 function playGame() {
   clearInterval(timer);
   resetTimer();
-  $(".card").click(startTimer);
-  $(".moves").empty();
+  // $(".card").click(startTimer);
+  $(".moves").empty().text("0 Moves");
+  $(".timer").text(0 + " Seconds");
   $(".fa.fa-star-o").removeClass("fa-star-o").addClass("fa-star");
   newDeck();
   restartButton();
