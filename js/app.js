@@ -21,7 +21,7 @@ function newDeck() {
     let iElement = document.createElement('i');
     iElement.className += "fa " + cardtype;
     let liElement = document.createElement('li');
-    liElement.className += 'card';
+    liElement.className += 'card' + ' single';
     liElement.addEventListener('click', toggleCard)
     liElement.appendChild(iElement);
     fragment.appendChild(liElement);
@@ -67,8 +67,7 @@ function resetTimer() {
 // toggling card function
 function toggleCard(cards) {
   //apply card open animation
-  $(this).addClass("open");
-  $(this).off("click", toggleCard);
+  // $(this).addClass("open");
   clicks += 1;
   //enable/disable start of timer
   if(clicks === 0){
@@ -79,11 +78,13 @@ function toggleCard(cards) {
   }
   //if no card has been opened
   if (open.length === 0) {
-    $(this).addClass("show");
+    $(this).addClass("open show");
+    $("li.open.show").off();
     open.push($(this));
-  } else if (open.length === 1) {
-    $(this).addClass("show");
+  } else if (open.length === 1 && !$(this).hasClass("open show")) {
+    $(this).addClass("open show");
     open.push($(this));
+    $("li").off();
     updateMoves();
     starScore();
   }
@@ -103,9 +104,10 @@ function testMatch() {
 
 //test for positive / negative match
 function positiveMatch() {
-  open[0].addClass("match pulse animated");
-  open[1].addClass("match pulse animated");
-  open[0].off
+  open[0].addClass("match pulse animated").removeClass("single");
+  open[1].addClass("match pulse animated").removeClass("single");
+  $("li.match.pulse.animated").off();
+  $("li.single").on("click",toggleCard);
   matches += 1;
   endGame();
   open = [];
@@ -114,17 +116,14 @@ function positiveMatch() {
 function negativeMatch() {
   open[0].addClass("shake animated");
   open[1].addClass("shake animated");
-  setTimeout(resetCards, 1000);
+  setTimeout(resetCards, 500);
 }
 
 //reset cards
 function resetCards() {
-  open[0].removeClass("card open show shake animated");
-  open[0].addClass("card");
-  open[0].click(toggleCard);
-  open[1].removeClass("card open show shake animated");
-  open[1].addClass("card")
-  open[1].click(toggleCard);
+  open[0].removeClass("open show shake animated");
+  open[1].removeClass("open show shake animated");
+  setTimeout(function(){$("li.single").on("click",toggleCard),400});
   open = [];
 }
 
