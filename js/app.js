@@ -188,6 +188,7 @@ function playGame() {
   restartButton();
   moves = 0;
   matches = 0;
+  open = [];
 }
 
 
