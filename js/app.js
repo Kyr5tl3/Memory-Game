@@ -66,8 +66,6 @@ function resetTimer() {
 
 // toggling card function
 function toggleCard(cards) {
-  //apply card open animation
-  // $(this).addClass("open");
   clicks += 1;
   //enable/disable start of timer
   if(clicks === 0){
@@ -77,7 +75,7 @@ function toggleCard(cards) {
     $(".cards").off("click",startTimer());
   }
   //if no card has been opened
-  if (open.length === 0) {
+  if (open.length === 0 && !$(this).hasClass("open show")) {
     $(this).addClass("open show");
     $("li.open.show").off();
     open.push($(this));
@@ -87,18 +85,20 @@ function toggleCard(cards) {
     $("li").off();
     updateMoves();
     starScore();
-  }
-  if (open.length === 2) {
     testMatch();
-  }
+}
 }
 
+let positive = "";
+let negative = "";
 //test if cards match
 function testMatch() {
-  if (open[0].children().attr("class") == open[1].children().attr("class")) {
-    setTimeout(positiveMatch, 500);
+  if (open[0].children().attr("class") === open[1].children().attr("class")) {
+    $("li").off();
+    positive = setTimeout(positiveMatch, 500);
   } else {
-    setTimeout(negativeMatch, 500);
+    $("li").off();
+    negative = setTimeout(negativeMatch, 500);
   }
 }
 
@@ -106,25 +106,32 @@ function testMatch() {
 function positiveMatch() {
   open[0].addClass("match pulse animated").removeClass("single");
   open[1].addClass("match pulse animated").removeClass("single");
+  open = [];
   $("li.match.pulse.animated").off();
   $("li.single").on("click",toggleCard);
   matches += 1;
   endGame();
-  open = [];
+  clearTimeout(positive);
 }
 
+let cardReset = "";
 function negativeMatch() {
+  $("li").off();
   open[0].addClass("shake animated");
   open[1].addClass("shake animated");
-  setTimeout(resetCards, 500);
+  open = [];
+  cardReset = setTimeout(resetCards, 500);
+  clearTimeout(negative);
 }
+
+let allowClicks = "";
 
 //reset cards
 function resetCards() {
-  open[0].removeClass("open show shake animated");
-  open[1].removeClass("open show shake animated");
-  setTimeout(function(){$("li.single").on("click",toggleCard),400});
-  open = [];
+  $("li").removeClass("open show shake animated");
+  allowClicks = setTimeout(function(){$("li.single").on("click",toggleCard),400});
+  clearTimeout(cardReset);
+  clearTimeout(allowClicks);
 }
 
 //update moves
