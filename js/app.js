@@ -75,11 +75,11 @@ function toggleCard(cards) {
     $(".cards").off("click",startTimer());
   }
   //if no card has been opened
-  if (open.length === 0 && !$(this).hasClass("open show")) {
+  if (open.length === 0 && !$(this).hasClass("open show") && !$(this).hasClass("match")) {
     $(this).addClass("open show");
     $("li.open.show").off();
     open.push($(this));
-  } else if (open.length === 1 && !$(this).hasClass("open show")) {
+  } else if (open.length === 1 && !$(this).hasClass("open show") && !$(this).hasClass("match")) {
     $(this).addClass("open show");
     open.push($(this));
     $("li").off();
@@ -120,7 +120,7 @@ function negativeMatch() {
   open[0].addClass("shake animated");
   open[1].addClass("shake animated");
   open = [];
-  cardReset = setTimeout(resetCards, 500);
+  cardReset = setTimeout(resetCards, 1000);
   clearTimeout(negative);
 }
 
@@ -129,7 +129,7 @@ let allowClicks = "";
 //reset cards
 function resetCards() {
   $("li").removeClass("open show shake animated");
-  allowClicks = setTimeout(function(){$("li.single").on("click",toggleCard),400});
+  allowClicks = setTimeout(function(){$("li.single").on("click",toggleCard),500});
   clearTimeout(cardReset);
   clearTimeout(allowClicks);
 }
